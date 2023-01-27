@@ -1,7 +1,4 @@
 'use strict';
-
-const BlogPost = require("./BlogPost");
-
 module.exports = (sequelize, DataTypes) => {
   const user = sequelize.define('User', {
     id: {
