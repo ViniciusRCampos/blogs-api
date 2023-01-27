@@ -24,7 +24,7 @@ const newUser = async (displayName, email, password, image) => {
     await User.create({ displayName, email, password, image });
     const payload = { data: { email, password } };
     const token = tokenJwt.sign(payload, process.env.JWT_SECRET);
-    return { status: 200,
+    return { status: 201,
          message: { token },
     };
 };
