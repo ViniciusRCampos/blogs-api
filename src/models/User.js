@@ -1,5 +1,7 @@
 'use strict';
 
+const BlogPost = require("./BlogPost");
+
 module.exports = (sequelize, DataTypes) => {
   const user = sequelize.define('User', {
     id: {
@@ -15,6 +17,13 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false,
     // modelName: 'user',
     underscored: true,
-  });
+  })
+
+  user.associate = (models) => {
+    user.hasMany(models.BlogPost,{
+      foreignKey: 'blog_post_id',
+      as: 'blog_post'
+    })
+  }
   return user;
 };
