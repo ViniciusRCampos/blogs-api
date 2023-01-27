@@ -4,6 +4,7 @@ const { validateToken } = require('../Auth/validateJWT');
 
 const route = Router();
 
+route.get('/categories', validateToken, categoryController.getAllCategories);
 route.post('/categories', validateToken, categoryController.createCategory);
 
 module.exports = route;

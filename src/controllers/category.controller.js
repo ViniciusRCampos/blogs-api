@@ -6,6 +6,12 @@ const createCategory = async (req, res) => {
     res.status(newCategory.status).json(newCategory.message);
 };
 
+const getAllCategories = async (_req, res) => {
+    const allCategories = await postService.getAllCategories();
+    res.status(allCategories.status).json(allCategories.message);
+};
+
 module.exports = {
     createCategory,
+    getAllCategories,
 };
