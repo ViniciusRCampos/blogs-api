@@ -11,7 +11,6 @@ const userSchemas = Joi.object({
 const newUser = async (displayName, email, password, image) => {
     const validate = userSchemas.validate({ displayName, email, password });
     if (validate.error) {
-        console.log(validate.error.message, 'aaaaah');
         return { status: 400,
             message: { message: validate.error.message } };
     }
@@ -29,6 +28,14 @@ const newUser = async (displayName, email, password, image) => {
     };
 };
 
+const getAllUser = async () => {
+    const allUser = await User.findAll({
+        attributes: { exclude: ['password'] },
+    });
+    return { status: 200, message: allUser };
+};
+
 module.exports = {
     newUser,
+    getAllUser,
 };
