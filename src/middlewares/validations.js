@@ -1,4 +1,4 @@
-const validateLogin = (req, res, Next) => {
+const validateEmailAndPassword = (req, res, Next) => {
     const { email, password } = req.body;
     if (!email || !password) {
         return res.status(400).json(
@@ -11,5 +11,6 @@ const validateLogin = (req, res, Next) => {
 };
 
 module.exports = {
-    validateLogin,
+    validateEmailAndPassword,
+
 };
