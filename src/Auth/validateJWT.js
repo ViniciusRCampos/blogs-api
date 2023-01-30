@@ -12,7 +12,8 @@ const validateToken = async (req, res, next) => {
     }
     try {
         const decoded = jwt.verify(token, secret);
-        req.user = decoded.data;
+        const { password: _, ...user } = decoded.data;
+        req.user = user;
 
         next();
       } catch (err) {

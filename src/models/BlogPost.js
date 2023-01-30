@@ -14,11 +14,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: true,
     },
     published: DataTypes.DATE,
-    updated: DataTypes.DATE
+    updated: DataTypes.DATE,
   }, {
     sequelize,
     // modelName: 'BlogPost',
-    timestamp: false,
+    timestamps: false,
     underscored: true,
   })
 
